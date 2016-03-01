@@ -3,7 +3,7 @@ package ru.epam.littleBelka.task4;
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
-public class Main {
+public class ElementsSequence {
 
     public static void main(String[] args) {
 
@@ -18,14 +18,19 @@ public class Main {
             for (int i = 0; i < n; i++) {
                 number[i] = sc.nextDouble();
             }
-            double max = number[0];
-            for (int i = 0; i < n / 2; i++) {
-                double tmp = number[i] + number[n - 1 - i];
-                if (max < tmp) {
-                    max = tmp;
-                }
-            }
-            System.out.println("Max =  " + new DecimalFormat("#0.00").format(max));
+            findMaxNumber(n, number);
         }
+    }
+
+    public static void findMaxNumber(int n, double[] number) {
+
+        double max = number[0];
+        for (int i = 0; i < n / 2; i++) {
+            double tmp = number[i] + number[n - 1 - i];
+            if (max < tmp) {
+                max = tmp;
+            }
+        }
+        System.out.println("Max =  " + new DecimalFormat("#0.00").format(max));
     }
 }

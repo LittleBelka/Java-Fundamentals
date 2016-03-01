@@ -3,7 +3,7 @@ package ru.epam.littleBelka.task3;
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
-public class Main {
+public class ValueFunction {
 
     public static void main(String[] args) {
 
@@ -19,16 +19,18 @@ public class Main {
         }
         System.out.println("Введите шаг  h");
         int h = sc.nextInt();
-        if (h <= 0) {
+        if (h < 0) {
             System.out.println("h - натуральное число");
         } else {
-            if (a == b) {
-                h = 1;
-            }
-            System.out.println("Аргумент" + "\t" + "Значение функции");
-            for (int i = a; i < b + 1; i = i + h) {
-                System.out.println(i + "\t\t\t" + new DecimalFormat("#0.00").format((Math.tan(2 * i) - 3)));
-            }
+            findValueFunction(a, b, h);
+        }
+    }
+
+    public static void findValueFunction(int a, int b, int h) {
+
+        System.out.println("Аргумент" + "\t" + "Значение функции");
+        for (int i = a; i < b + 1; i = i + h) {
+            System.out.println(i + "\t\t\t" + new DecimalFormat("#0.00").format((Math.tan(2 * i) - 3)));
         }
     }
 }
